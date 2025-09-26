@@ -1,0 +1,34 @@
+#! /usr/bin/bash
+
+# This suggested answer may be overly complicated
+# because I limit the commands to 
+# wc, head, tail, cut, sort, and uniq
+
+echo "q1"
+wc -l tuition.csv | cut -d " " -f 1
+
+echo "q2"
+tail -n +6 tuition.csv
+
+echo "q3"
+tail -n +6 tuition.csv  | head -n 1 ; tail -n 1 tuition.csv
+
+echo "q4"
+tail -n +6 tuition.csv | cut -d "," -f 4 | sort -u
+
+echo "q5"
+grep -e "Capilano University" -e "Langara College" tuition.csv
+
+echo "q6"
+grep "2019/20" tuition.csv  | cut -d "$" -f1,2 --output-delimiter="," | cut -d "," -f 4,6,7 | cut -d '"' -f 1 --output-delimiter ","
+
+echo "q7"
+grep "2019/20" tuition.csv  | cut -d "$" -f1,2 --output-delimiter="," | cut -d "," -f 4,6,7 | cut -d '"' -f 1 --output-delimiter "," | sort
+
+echo "q8"
+grep "2019/20" tuition.csv  | cut -d "$" -f1,2 --output-delimiter="," | cut -d "," -f 4,6,7 | cut -d '"' -f 1 --output-delimiter "," | sort -t, -k2n -k3n | cut -d "," -f 1
+~
+~
+~
+~
+
